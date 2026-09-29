@@ -13,10 +13,72 @@
                     <li><a href="#">About</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
+            </nav>
             <h1> Welcome to my website</h1>
         </header>
         <main>
             <p> This is a simple paragraph</p>
+             <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="nombre">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender">
+                    <option value="option1">Option A</option>
+                    <option value="option2">Option B</option>
+                    <option value="option3">Option C</option>
+            
+                </select>
+                <input type="checkbox" id="checkbox" name="checkbox">
+                <label for="checkbox">Check me</label>
+
+                <input type="radio" id="radio1" name="radio" value="option1">
+                <label for="radio1">Option 1</label>
+                <input type="radio" id="radio2" name="radio" value="option2">
+                <label for="radio2">Option 2</label>
+                <input type="radio" id="radio3" name="radio" value="option3">
+                <label for="radio3">Option 3</label>
+
+                <textarea id="message" name="message" rows="4" cols="50"></textarea>
+
+                <input type="number" id="number" name="number" min="1" max="10">
+                <input type="date"  id="date" name="date">
+                <input type="file" id="file" name="file">   
+                <input type="range" id="range" name="range" min="0" max="100">
+                <input type="color" id="color" name="color">
+                <input type="tel" id="tel" name="tel">
+                <input type="time" id="time" name="time">
+                <input type="SEARCH" id="search" name="search">
+
+
+
+                <button type="submit">Submit</button>
+            </form>
+
+            <h2>Datos de salida</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ana</td>
+                        <td>ana@example.com</td>
+                    </tr>
+                    <tr>
+                        <td>Luis</td>
+                        <td>luis@example.com</td>
+                    </tr>
+                </tbody>
+            </table>
+
         </main>
         <footer>
             <p>&copy; 2023 My Website. All rights reserved</p>
