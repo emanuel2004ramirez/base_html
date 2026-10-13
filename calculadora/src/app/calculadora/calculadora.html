@@ -1,0 +1,10 @@
+<p>CASIO</p>
+<body>
+  <div class="calculadora">
+    <h1>Calculadora</h1>
+    <input type="number" [(ngModel)]="a" placeholder="Ingrese el primer número" />
+    <input type="number" [(ngModel)]="b" placeholder="Ingrese el segundo número" />
+    <button (click)="resultado.set(a + b)">Sumar</button>
+    <p>Resultado: {{ resultado() }}</p>
+  </div>
+</body>
