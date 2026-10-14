@@ -1,10 +1,49 @@
-<p>CASIO</p>
-<body>
-  <div class="calculadora">
-    <h1>Calculadora</h1>
-    <input type="number" [(ngModel)]="a" placeholder="Ingrese el primer número" />
-    <input type="number" [(ngModel)]="b" placeholder="Ingrese el segundo número" />
-    <button (click)="resultado.set(a + b)">Sumar</button>
-    <p>Resultado: {{ resultado() }}</p>
-  </div>
-</body>
+<main class="contenedor">
+  <p class="etiqueta">ISC-305 · Programación Web</p>
+
+  <h1>Calculadora</h1>
+  <p class="descripcion">Suma dos números usando señales de Angular.</p>
+
+  <section class="tarjeta">
+    <h2>Suma simple</h2>
+
+    <div class="campos">
+      <label for="numero-a">
+        Primer número
+        <input
+          id="numero-a"
+          type="number"
+          [ngModel]="a()"
+          (ngModelChange)="a.set($event)"
+        />
+      </label>
+
+      <label for="numero-b">
+        Segundo número
+        <input
+          id="numero-b"
+          type="number"
+          [ngModel]="b()"
+          (ngModelChange)="b.set($event)"
+        />
+      </label>
+    </div>
+
+    <p class="resultado" aria-live="polite">
+      Resultado: <strong>{{ resultado() }}</strong>
+    </p>
+
+    <div class="acciones">
+      <button type="button" (click)="sumar()">Sumar</button>
+
+      <button
+        type="button"
+        class="secundario"
+        (click)="reiniciar()"
+        [disabled]="a() === 0 && b() === 0 && resultado() === 0"
+      >
+        Reiniciar
+      </button>
+    </div>
+  </section>
+</main>

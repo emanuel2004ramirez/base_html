@@ -18,4 +18,25 @@ describe('Calculadora', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should add both numbers', () => {
+    component.a.set(2);
+    component.b.set(3);
+
+    component.sumar();
+
+    expect(component.resultado()).toBe(5);
+  });
+
+  it('should reset the calculator', () => {
+    component.a.set(4);
+    component.b.set(6);
+    component.sumar();
+
+    component.reiniciar();
+
+    expect(component.a()).toBe(0);
+    expect(component.b()).toBe(0);
+    expect(component.resultado()).toBe(0);
+  });
 });
