@@ -30,7 +30,6 @@ th, td { border: 1px solid #ccc; padding: 8px; }
 @if ($errors->any())
 <ul class="error">
 @foreach ($errors->all() as $error)
-3
 <li>{{ $error }}</li>
 @endforeach
 </ul>
