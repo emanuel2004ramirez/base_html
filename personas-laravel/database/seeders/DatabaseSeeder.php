@@ -7,6 +7,7 @@ public function run(): void
 {
 $this->call([
 UsuarioDemoSeeder::class,
+PersonaSeeder::class,
 ]);
 }
 }
