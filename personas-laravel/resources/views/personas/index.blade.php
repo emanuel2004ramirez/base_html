@@ -35,6 +35,15 @@
                     <a href="{{ route('personas.edit', $persona->id) }}">
                         Editar
                     </a>
+                    <form method="POST"
+                        action="{{ route('personas.destroy', $persona->id) }}"
+                        onsubmit="return confirm('¿Está seguro de eliminar esta persona?')"
+                        style="display: inline-block;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">
+                            Eliminar
+                        </button>
                 </td>
             </tr>
         @empty
