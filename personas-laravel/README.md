@@ -57,3 +57,80 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Guía 4: Editar y actualizar personas
+
+En esta práctica se implementó la funcionalidad para editar y actualizar los datos de una persona registrada en MySQL, conservando su identificador (id).
+
+### Archivos utilizados
+
+**1. routes/web.php**
+
+Recibe las peticiones HTTP y las dirige al controlador correspondiente. Se utilizaron las rutas GET para mostrar el formulario de edición y PUT para procesar la actualización.
+
+**2. app/Http/Controllers/PersonaController.php**
+
+Contiene los métodos `edit()` y `update()`. El primero busca la persona y muestra sus datos; el segundo valida la información ingresada y guarda los cambios utilizando `save()`.
+
+**3. app/Models/Persona.php**
+
+Es el modelo Eloquent que permite consultar y modificar los registros de la tabla `personas` en MySQL.
+
+**4. resources/views/personas/edit.blade.php**
+
+Genera el formulario HTML de edición, mostrando los datos actuales de la persona y permitiendo modificarlos.
+
+**5. resources/views/personas/index.blade.php**
+
+Muestra el listado de personas registradas y contiene el enlace Editar para seleccionar un registro.
+
+### Conceptos aprendidos
+
+- **findOrFail():** busca un registro por su id y genera un error 404 si no existe.
+- **PUT:** permite enviar una petición para actualizar un registro existente.
+- **old():** recupera los valores ingresados cuando ocurre un error de validación.
+- **ignore():** permite conservar el DNI de la persona editada sin considerarlo duplicado.
+
+### Resultado
+
+Se logró editar los datos de las personas existentes, validando la información antes de guardarla y manteniendo el mismo identificador sin crear registros adicionales.
+
+
+
+**Migración:** Permite crear la tabla `personas` en MySQL con sus respectivos campos.
+
+**Seeder:** Permite insertar registros iniciales para realizar pruebas.
+
+**Factory:** Genera datos ficticios de personas automáticamente.
+
+**Modelo:** `Persona.php` representa la tabla `personas` y permite realizar operaciones mediante Eloquent.
+
+**Blade:** Permite generar las vistas HTML del sistema, como el listado y los formularios de personas.
+
+**Sesión:** Mantiene al usuario autenticado para acceder al CRUD.
+
+**CSRF:** Protege los formularios mediante el token `@csrf`.
+
+**Métodos HTTP:**
+- GET `/personas`: muestra las personas registradas.
+- POST `/personas`: guarda una nueva persona.
+- PUT `/personas/{id}`: actualiza una persona.
+- DELETE `/personas/{id}`: elimina una persona.
+
+## Funcionamiento de los archivos
+
+**¿Qué archivo recibe la petición?**
+
+`routes/web.php` recibe y dirige las solicitudes al controlador correspondiente.
+
+**¿Qué archivo consulta o modifica los datos?**
+
+`PersonaController.php` procesa las solicitudes y utiliza el modelo `Persona.php` para consultar o modificar los datos en MySQL.
+
+**¿Qué archivo genera el HTML?**
+
+Los archivos Blade ubicados en `resources/views/personas/` generan las páginas HTML que se muestran al usuario.
+
+## Verificación del CRUD
+
+Se verifica el funcionamiento de las operaciones de creación, consulta, actualización y eliminación de personas. La eliminación solicita confirmación y utiliza el método DELETE. Las rutas están protegidas mediante autenticación.
